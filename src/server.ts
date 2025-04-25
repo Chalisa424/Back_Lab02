@@ -16,6 +16,91 @@ app.get('/test',(req: Request ,res:Response)=>{
     res.send(retunObj);
 })
 
+app.get('/events',(req:Request, res:Response) =>{
+    res.json(events);
+})
+
 app.listen (port,() =>{
     console.log(`App listen at http://localhost:${port}`);
 })
+
+interface Event{
+    id: number;
+    catagory: string;
+    title: string;
+    description: string;
+    location: string;
+    date: string;
+    time: string; 
+    petAlowed: boolean; 
+    organizer: string;
+}
+
+const events: Event[] = [
+    {
+        id:1,
+        catagory: 'Music',
+        title: 'Concert',
+        description: 'Live concert by famous band',
+        location: 'Central Park',
+        date: '2023-10-01',
+        time: '18:00',
+        petAlowed: true,
+        organizer: 'John Doe'
+    },
+    {
+        id: 2,
+        catagory: 'Art',
+        title: 'Art Exhibition',
+        description: 'Modern art exhibition by local artists',
+        location: 'Art Gallery',
+        date: '2023-11-15',
+        time: '10:00',
+        petAlowed: false,
+        organizer: 'Jane Smith'
+    },
+    {
+        id: 3,
+        catagory: 'Technology',
+        title: 'Tech Conference',
+        description: 'Annual technology conference with keynote speakers',
+        location: 'Convention Center',
+        date: '2023-12-05',
+        time: '09:00',
+        petAlowed: false,
+        organizer: 'Tech Corp'
+    },
+    {
+        id: 4,
+        catagory: 'Food',
+        title: 'Food Festival',
+        description: 'Taste dishes from around the world',
+        location: 'Downtown Plaza',
+        date: '2024-01-20',
+        time: '12:00',
+        petAlowed: true,
+        organizer: 'City Council'
+    },
+    {
+        id: 5,
+        catagory: 'Sports',
+        title: 'Marathon',
+        description: 'Annual city marathon for all ages',
+        location: 'City Park',
+        date: '2024-03-10',
+        time: '07:00',
+        petAlowed: false,
+        organizer: 'Sports Association'
+    },
+    {
+        id: 6,
+        catagory: 'Education',
+        title: 'Science Fair',
+        description: 'Interactive science fair for students and families',
+        location: 'Community Center',
+        date: '2024-04-15',
+        time: '10:00',
+        petAlowed: true,
+        organizer: 'Local Schools'
+    }
+]
