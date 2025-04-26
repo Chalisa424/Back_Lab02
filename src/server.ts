@@ -20,13 +20,20 @@ app.get('/events',(req:Request, res:Response) =>{
     res.json(events);
 })
 
+app.get("/events",(req, res)=>{
+    const category = req.query.category;
+    const filteredEvents = events.filter((event) => event.category === category);
+    res.json(filteredEvents);
+})
+
 app.listen (port,() =>{
     console.log(`App listen at http://localhost:${port}`);
 })
 
+//////////////// Type Object //////////////////////////////
 interface Event{
     id: number;
-    catagory: string;
+    category: string;
     title: string;
     description: string;
     location: string;
@@ -39,7 +46,7 @@ interface Event{
 const events: Event[] = [
     {
         id:1,
-        catagory: 'Music',
+        category: 'Music',
         title: 'Concert',
         description: 'Live concert by famous band',
         location: 'Central Park',
@@ -50,7 +57,7 @@ const events: Event[] = [
     },
     {
         id: 2,
-        catagory: 'Art',
+        category: 'Art',
         title: 'Art Exhibition',
         description: 'Modern art exhibition by local artists',
         location: 'Art Gallery',
@@ -61,7 +68,7 @@ const events: Event[] = [
     },
     {
         id: 3,
-        catagory: 'Technology',
+        category: 'Technology',
         title: 'Tech Conference',
         description: 'Annual technology conference with keynote speakers',
         location: 'Convention Center',
@@ -72,7 +79,7 @@ const events: Event[] = [
     },
     {
         id: 4,
-        catagory: 'Food',
+        category: 'Food',
         title: 'Food Festival',
         description: 'Taste dishes from around the world',
         location: 'Downtown Plaza',
@@ -83,7 +90,7 @@ const events: Event[] = [
     },
     {
         id: 5,
-        catagory: 'Sports',
+        category: 'Sports',
         title: 'Marathon',
         description: 'Annual city marathon for all ages',
         location: 'City Park',
@@ -94,7 +101,7 @@ const events: Event[] = [
     },
     {
         id: 6,
-        catagory: 'Education',
+        category: 'Education',
         title: 'Science Fair',
         description: 'Interactive science fair for students and families',
         location: 'Community Center',
