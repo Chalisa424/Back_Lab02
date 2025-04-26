@@ -16,9 +16,9 @@ app.get('/test',(req: Request ,res:Response)=>{
     res.send(retunObj);
 })
 
-app.get('/events',(req:Request, res:Response) =>{
-    res.json(events);
-})
+// app.get('/events',(req:Request, res:Response) =>{
+//     res.json(events);
+// })//ใส่router 2 ครั้ง จะ run router 1 ไม่run router 2
 
 app.get("/events",(req, res)=>{
     if (req.query.category) {
